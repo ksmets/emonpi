@@ -129,6 +129,8 @@ int power1_plus_2;
 int Vrms;
 int temp[MaxOnewire];
 unsigned long pulseCount;
+int apparentPower1;
+int apparentPower2;
 } PayloadTX;                                                    // create JeeLabs RF packet structure - a neat way of packaging data for RF comms
 PayloadTX emonPi;
 //-------------------------------------------------------------------------------------------------------------------------------------------
@@ -261,6 +263,7 @@ void loop()
     if (ACAC && CT1)                                                                      // Read from CT 1
     {
       ct1.calcVI(no_of_half_wavelengths,timeout); emonPi.power1=ct1.realPower;
+      emonPi.apparentPower1 = ct1.apparentPower;
       emonPi.Vrms=ct1.Vrms*100;
    }
     else
@@ -271,6 +274,7 @@ void loop()
    if (ACAC && CT2)                                                                       // Read from CT 2
    {
      ct2.calcVI(no_of_half_wavelengths,timeout); emonPi.power2=ct2.realPower;
+     emonPi.apparentPower2 = ct2.apparentPower;
      emonPi.Vrms=ct2.Vrms*100;
    }
    else
