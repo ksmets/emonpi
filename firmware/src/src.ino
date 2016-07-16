@@ -40,10 +40,10 @@ emonhub.conf node decoder:
     firmware = emonPi_RFM69CW_RF12Demo_DiscreteSampling.ino
     hardware = emonpi
     [[[rx]]]
-        names = power1,power2,power1_plus_power2,Vrms,T1,T2,T3,T4,T5,T6,pulseCount
-        datacodes = h, h, h, h, h, h, h, h, h, h, L
-        scales = 1,1,1,0.01,0.1,0.1,0.1,0.1,0.1,0.1,1
-        units = W,W,W,V,C,C,C,C,C,C,p
+        names = power1,power2,power1_plus_power2,Vrms,T1,T2,T3,T4,T5,T6,pulseCount,apparent_power1,apparent_power2
+        datacodes = h, h, h, h, h, h, h, h, h, h, L, h, h
+        scales = 1,1,1,0.01,0.1,0.1,0.1,0.1,0.1,0.1,1,1,1
+        units = W,W,W,V,C,C,C,C,C,C,p,VA,VA
 
 */
 
